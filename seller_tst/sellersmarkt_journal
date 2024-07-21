@@ -1,0 +1,135 @@
+
+11/07/2024
+Working on this for a couple oof weeeks. Lots of different code pieces being smushed together. 
+Orders entity is missing data such as 'what product? - product id' , 'what price?', 'what quantity'
+
+Current orders entity structure: 
+$order_table = "CREATE TABLE IF NOT EXISTS orders (
+    order_id INT AUTO_INCREMENT PRIMARY KEY,
+    seller_id INT,
+    user_id INT,
+    order_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    order_value DECIMAL(10,2) NOT NULL,
+    order_is_completed BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (seller_id) REFERENCES seller(seller_id),
+    FOREIGN KEY (user_id) REFERENCES seller(user_id)
+  )";
+  
+  Add: 
+  product_id
+  order_product_price
+  order_product_qty
+  order_product_discount_amt
+  
+  $order_table = "CREATE TABLE IF NOT EXISTS orders (
+    order_id INT AUTO_INCREMENT PRIMARY KEY,
+    seller_id INT,
+    user_id INT,
+    product_id INT,
+    order_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    order_product_price DECIMAL(10,2) NOT NULL,
+    order_value DECIMAL(10,2) NOT NULL,
+    order_product_qty INT,
+    order_product_discount_amt DECIMAL(10,2) NOT NULL,
+    order_is_completed BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (seller_id) REFERENCES seller(seller_id),
+    FOREIGN KEY (user_id) REFERENCES user(user_id),
+    FOREIGN KEY (product_id) REFERENCES product(product_id)
+  )";
+  
+  why do i have a seller(user_id) in the seller table? - removed it
+  
+  Gemini suggestion re having the order invoice amount in the same table as quantity and price -
+  Yes, it is absolutely possible to do a calculation at the time of inserting values into the table. There are two main approaches you can consider:
+
+1. Using Triggers:
+
+    Triggers are special database objects that can be automatically executed in response to certain events, such as inserting data into a table.
+    You can create a trigger on the orders table that fires after an INSERT operation.
+    The trigger code can access the inserted data (including product price and quantity) and calculate the order_value (price * quantity).
+    ***********************************************
+    
+    
+    12/7/2024
+    Pin.TT uses whatsapp as a means of user verification and registration. This is against facebook/whatsapp policy. I need to find another way to perform the task: 
+Security: WhatsApp prioritizes user privacy and security. Sending verification codes via WhatsApp Business API is against their terms of service. It's meant for business communication initiated by the user, not verification purposes.
+
+13/7/2024
+progress with login page. SMS authentication using firebase may be best route, interim user simply uses mobile number
+now working on displaying orders correctly
+
+17/07/2024
+Need to have a working app on or before 25th July (Wed next week)
+
+Great open ai code suggestion for a dropdown in the navigation bar that allows logged in user
+to view - my products, my orders etc. 
+
+        <li class="dropdown">
+          <a href="user_register.php" id="login-link">Login</a>
+          <div class="dropdown-content">
+            <a href="settings.php">My Settings</a>
+            <a href="products.php">My Products</a>
+            <a href="orders.php">My Orders</a>
+          </div>
+        </li>
+
+Will save related code files in Drive. Create a github repo for later
+
+
+/echo "<script>location='seller_order_dash.php'</script>
+
+
+     
+        <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
+        <li class="dropdown">
+          <a href="#"><?php echo htmlspecialchars($_SESSION['username']); ?></a>
+          <div class="dropdown-content">
+            <a href="settings.php">My Settings</a>
+            <a href="seller_product_dash.php">My Products</a>
+            <a href="seller_order_dash.php">My Orders</a>
+            <a href="logout.php">Logout</a>
+          </div>
+        </li>
+        <?php else: ?>
+        <li><a href="login.php">Login</a></li>
+        <?php endif; ?>
+
+18/7/2024
+Struggling time wise. Key features that are still missing. 
+
+1-Export to excel
+2-Add products
+3-Edit products
+4-Whatsapp broadcast
+5-Whatsapp order and database recording
+
+Good progress on adding products page. Able to add products with minor error in missing category id. 
+
+Time needed to implement dropdown to select product category. 
+
+After user is able to add product, edit product is next
+
+
+19/7/2024
+ALTER TABLE product
+DROP COLUMN product_prev_order_count;
+
+20/07/2024
+Added product is active field so seller can set this to make it Available
+Able to display only active items on products password_
+Optimized some code so displayAllProducts, getAllProducts can be reused
+
+Use of developer tools to reveal network response helped solve or begin solvign difficult problem (chatGPT)
+
+<br />
+<b>Warning</b>:  require_once(db/db_conn.php): Failed to open stream: No such file or directory in <b>C:\xampp\htdocs\seller_tst\dbqueries\getProductDetails.php</b> on line <b>2</b><br />
+<br />
+<b>Fatal error</b>:  Uncaught Error: Failed opening required 'db/db_conn.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\seller_tst\dbqueries\getProductDetails.php:2
+Stack trace:
+#0 {main}
+  thrown in <b>C:\xampp\htdocs\seller_tst\dbqueries\getProductDetails.php</b> on line <b>2</b><br />
+
+
+  Modal pops up successfully now. Well fucking done ChatGPT!!!!
+
+  Gemini provided feedback that using the require_once(__DIR__) is not recommended. i will review this later on

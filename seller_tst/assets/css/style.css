@@ -1,0 +1,85 @@
+body {
+  background-color: #f2f2f2; /* Light grey background */
+  font-family:Arial, sans-serif;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background-color: #fff; /* White background for the post */
+  border: 1px solid #ddd;
+  border-radius: 10px; /* Increased roundness */
+  padding: 20px; /* More padding */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Hovering effect */
+  transition: box-shadow 0.2s ease-in-out; /* Smooth transition */
+}
+
+.container:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.header {
+  background-color: #428bca; /* Blue header background */
+  color: #fff; /* White text color for header */
+  padding: 10px 15px;
+  border-top-left-radius: 10px; /* Increased roundness to match container */
+  border-top-right-radius: 10px; /* Increased roundness to match container */
+  font-size: 18px; /* Larger font size for header text */
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  
+  
+  
+  
+/*************************************************************************************************************/ 
+  
+ /*slider on the products page*/
+.product-container {
+  width: 80%;
+  margin: 0 auto; /* Center the container horizontally */
+}
+
+.product-slider {
+  display: flex; /* Make the slider a flexbox container */
+  overflow-x: scroll; /* Enable horizontal scrolling */
+  scroll-snap-type: x mandatory; /* Enable snapping to items */
+}
+
+.product-track {
+  display: flex; /* Make the product track a flexbox container */
+  width: calc(100vw + 100px); /* Set width to fit all items and some extra space */
+  scroll-snap-destination: x mandatory; /* Enable snapping to items within the track */
+}
+
+.product-item {
+  width: calc(16.66% - 20px); /* Set width for each product item with margin */
+  margin: 10px;
+  scroll-snap-align: start; /* Snap each item to the start of the viewing area */
+  text-align: center;
+}
+
+.product-item img {
+  width: 100%; /* Set image width to fit the product item */
+  height: auto;
+}
+
+.product-scroll-left,
+.product-scroll-right {
+  padding: 10px;
+  cursor: pointer;
+  user-select: none; /* Prevent selecting text on buttons */
+}
+
+.product-scroll-left {
+  margin-right: 10px;
+}
+/*end cod related to slider*/
+/****************************************************************************************************************/
+

@@ -1,0 +1,41 @@
+ /*slider on the products page*/
+.product-container {
+  width: 80%;
+  margin: 0 auto; /* Center the container horizontally */
+}
+
+.product-slider {
+  display: flex; /* Make the slider a flexbox container */
+  overflow-x: scroll; /* Enable horizontal scrolling */
+  scroll-snap-type: x mandatory; /* Enable snapping to items */
+}
+
+.product-track {
+  display: flex; /* Make the product track a flexbox container */
+  width: calc(100vw + 100px); /* Set width to fit all items and some extra space */
+  scroll-snap-destination: x mandatory; /* Enable snapping to items within the track */
+}
+
+.product-item {
+  width: calc(16.66% - 20px); /* Set width for each product item with margin */
+  margin: 10px;
+  scroll-snap-align: start; /* Snap each item to the start of the viewing area */
+  text-align: center;
+}
+
+.product-item img {
+  width: 100%; /* Set image width to fit the product item */
+  height: auto;
+}
+
+.product-scroll-left,
+.product-scroll-right {
+  padding: 10px;
+  cursor: pointer;
+  user-select: none; /* Prevent selecting text on buttons */
+}
+
+.product-scroll-left {
+  margin-right: 10px;
+}
+/*end cod related to slider*/

@@ -1,0 +1,167 @@
+body {
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.container {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.create-post .user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.create-post .user-info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.create-post textarea,
+.new-comment-form textarea {
+  border: none;
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: #f0f2f5;
+  font-size: 16px;
+  outline: none;
+  resize: none;
+}
+
+.create-post .post-options {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.create-post .option-button {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.create-post .option-button i {
+  margin-right: 5px;
+}
+
+.blog-post .user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.blog-post .user-info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.blog-post .user-info .user-name {
+  font-weight: bold;
+}
+
+.blog-post .user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-post p {
+  margin: 10px 0;
+}
+
+.blog-post img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.comments-area {
+  margin-top: 20px;
+}
+
+.comment {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.comment .user-info {
+  display: flex;
+  align-items: center;
+}
+
+.comment .user-info img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.comment .user-info .user-name {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.like-button {
+  background-color: transparent;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.new-comment-form .user-info {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.new-comment-form .user-info img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.new-comment-form .add-comment {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+ 
+
